@@ -15,8 +15,8 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
-        $description = $request->get('description') ;
-        $tanggal = carbon::parse($request->get('tanggal'))->format('Y-m-d');
+        $description = $request->get('description') ? $request->get('description') : '' ;
+        $tanggal = $request->get('tanggal') ? $request->get('tanggal') : '';
 
         $task = Task::orderBy('created_at','desc')->paginate(10);
        
@@ -27,14 +27,13 @@ class TaskController extends Controller
             $task = Task::where('description','LIKE',"%$description%")->paginate(10);
    
 
+        }elseif($tanggal){
+
+            $task = Task::where('due_date',$tanggal)->paginate(10);
+
         }
         
-        // elseif($tanggal){
-
-        //     $task = Task::where('due_date',$tanggal)->paginate(10);
-  
-        // }
-
+      
         return view('task.index',['task'=>$task]);
 
        

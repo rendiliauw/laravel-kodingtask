@@ -90,7 +90,8 @@
     
     <script>
         $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
+            uiLibrary: 'bootstrap4',
+            format: 'yyyy-mm-dd'
         });
     </script>
 @endsection

@@ -14,9 +14,9 @@ class Task extends Model
 
     }
 
-    public function getDueDateAttribute($value){
-        return Carbon::parse($value)->format('d-m-Y');
-    }
+    // public function getDueDateAttribute($value){
+    //     return Carbon::parse($value)->format('d-m-Y');
+    //  }
 
     use SoftDeletes;
 

@@ -19,6 +19,8 @@
 
                     <form method="post" action="{{route('task.update',['id' => $task->id])}}">
                     {{csrf_field()}}
+                    {{method_field('PUT')}}
+                    
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title Task</label>
                             <input type="text" name="title_task" value="{{old('title_task') ? 'old("title_task")' : $task->title_task }}" class="form-control"> 
@@ -32,7 +34,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Due Date</label>
-                            <input type="text" name="due_date" id="datepicker" value="{{old('due_date') ? 'old("due_date")' : $task->due_date}}" class="form-control"> 
+                            <input type="text" name="date" id="datepicker" value="{{old('due_date') ? 'old("due_date")' : $task->due_date}}" class="form-control"> 
                             @if($errors->has('due_date')) <small>{{$errors->first('due_date')}}</small> @endif
                         </div>  
 
@@ -51,8 +53,8 @@
     <script>
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap4',
-            changeYear: true,
-            changeMonth: true
+            format: 'yyyy-mm-dd'
+            
         });
     </script>
 @endsection
