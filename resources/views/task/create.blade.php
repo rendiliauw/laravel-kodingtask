@@ -32,7 +32,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Due Date</label>
-                            <input type="text" name="date" id="datepicker" value="{{old('due_date')}}" class="form-control"> 
+                            <input type="text" name="due_date" id="datepicker" value="{{old('due_date')}}" class="form-control"> 
                             @if($errors->has('due_date')) <small>{{$errors->first('due_date')}}</small> @endif
                         </div>  
 
